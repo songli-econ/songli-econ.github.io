@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0pt}
+  {\MakeUppercase}
+  [\titlerule]
+\titlespacing*{\section}{0pt}{1.1em}{0.45em}
+
+\newcommand{\datedentry}[3]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    #1 & #2 \\
+  \end{tabularx}
+  #3
+}
+
+\begin{document}
+
+{\LARGE SONG LI}
+
+\vspace{0.5em}
+Department of Economics and Economic History \\
+Universitat Autonoma de Barcelona \\
+Barcelona School of Economics \\
+Email: \href{mailto:brandon.song.li@gmail.com}{brandon.song.li@gmail.com} \\
+Web site: \href{https://songli-econ.github.io/}{https://songli-econ.github.io/}
+
+\section{Education}
+
+\datedentry{\textbf{Ph.D. student in Economics}, Universitat Autonoma de Barcelona and Barcelona School of Economics}{2024--}{}
+
+\datedentry{\textbf{Bachelor of Economics, Finance Major}, Xi'an University of Finance and Economics}{2010--2014}{}
+
+\section{Fields of Interest}
+
+Microeconomic Theory
+
+\section{Working Papers}
+
+\begin{itemize}
+  \item ``Robust Narrative Persuasion.''
+\end{itemize}
+
+\section{Supervisor}
+
+\href{https://sites.google.com/site/ferpayrochew/home?authuser=0}{Fernando Payro Chew}
+
+\end{document}
