@@ -193,6 +193,15 @@ li + li {
   font-size: 15px;
 }
 
+.paper-abstract {
+  margin-top: 10px;
+  max-width: 780px;
+}
+
+.paper-abstract-label {
+  font-weight: 700;
+}
+
 .footer {
   padding-top: 34px;
   color: var(--muted);
