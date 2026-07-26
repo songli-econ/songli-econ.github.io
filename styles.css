@@ -118,11 +118,10 @@ h1 {
 
 .portrait {
   display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
+  width: min(100%, 240px);
+  height: auto;
+  justify-self: end;
   border: 1px solid var(--line);
-  object-fit: cover;
-  object-position: center top;
 }
 
 section {
@@ -240,6 +239,7 @@ li + li {
   }
 
   .portrait {
-    max-width: 300px;
+    width: min(100%, 220px);
+    justify-self: start;
   }
 }
