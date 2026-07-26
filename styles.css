@@ -117,17 +117,12 @@ h1 {
 }
 
 .portrait {
+  display: block;
+  width: 100%;
   aspect-ratio: 4 / 5;
   border: 1px solid var(--line);
-  background:
-    linear-gradient(135deg, rgba(169, 7, 7, 0.08), rgba(32, 33, 36, 0.03)),
-    var(--soft);
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  color: var(--muted);
-  text-align: center;
-  font-size: 14px;
+  object-fit: cover;
+  object-position: center top;
 }
 
 section {
