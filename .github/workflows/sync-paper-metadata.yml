@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - papers/robust-narrative-persuasion-draft.pdf
+      - scripts/sync-paper-metadata.py
+      - .github/workflows/sync-paper-metadata.yml
   workflow_dispatch:
 
 permissions:
