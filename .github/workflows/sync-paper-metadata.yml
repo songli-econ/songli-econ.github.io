@@ -1,0 +1,53 @@
+name: Sync paper metadata
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - papers/robust-narrative-persuasion-draft.pdf
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-paper-metadata
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install PDF tools
+        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
+
+      - name: Use the latest main branch
+        run: git pull --ff-only origin main
+
+      - name: Synchronize dates
+        run: python3 scripts/sync-paper-metadata.py
+
+      - name: Commit synchronized metadata
+        run: |
+          git add papers/robust-narrative-persuasion.html sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Metadata is already synchronized."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync paper metadata with PDF"
+          git pull --rebase origin main
+          python3 scripts/sync-paper-metadata.py
+          git add papers/robust-narrative-persuasion.html sitemap.xml
+          if ! git diff --cached --quiet; then
+            git commit --amend --no-edit
+          fi
+          git push origin HEAD:main
