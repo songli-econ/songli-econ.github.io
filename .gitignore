@@ -1,0 +1,7 @@
+# Claude Code /export conversation transcripts (YYYY-MM-DD-HHMMSS-slug.txt).
+# This repo is a public GitHub Pages site: anything committed here is served at
+# songli-econ.github.io/<path>. Transcripts contain private instructions and
+# local paths, so they must never be publishable by a stray `git add -A`.
+# Narrow to the /export filename shape on purpose; `*.txt` would also cover
+# robots.txt, which is a real part of the site.
+20??-??-??-??????-*.txt
