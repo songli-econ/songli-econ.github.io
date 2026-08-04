@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://songli-econ.github.io/sitemap.xml
+Sitemap: https://songli-econ.github.io/sitemap.txt
