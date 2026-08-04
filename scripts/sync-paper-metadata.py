@@ -85,6 +85,7 @@ def replace_once(text: str, pattern: str, replacement: str, label: str) -> str:
 
 def update_html(text: str, date: datetime) -> str:
     scholar_date = date.strftime("%Y/%m/%d")
+    iso_date = date.strftime("%Y-%m-%d")
     display_date = f"{date.strftime('%B')} {date.day}, {date.year}"
     display_month = date.strftime("%B %Y")
 
@@ -99,6 +100,18 @@ def update_html(text: str, date: datetime) -> str:
         r'(<meta name="citation_online_date" content=")[^"]+(">.*)',
         rf"\g<1>{scholar_date}\g<2>",
         "citation_online_date",
+    )
+    text = replace_once(
+        text,
+        r'("datePublished": ")[^"]+(")',
+        rf"\g<1>{iso_date}\g<2>",
+        "structured-data publication date",
+    )
+    text = replace_once(
+        text,
+        r'("dateModified": ")[^"]+(")',
+        rf"\g<1>{iso_date}\g<2>",
+        "structured-data modification date",
     )
     text = replace_once(
         text,
