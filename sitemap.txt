@@ -1,5 +1,8 @@
 https://songli-econ.github.io/
 https://songli-econ.github.io/research.html
 https://songli-econ.github.io/cv.html
+https://songli-econ.github.io/sitemap.html
+https://songli-econ.github.io/cv/song-li-cv.pdf
 https://songli-econ.github.io/papers/robust-narrative-persuasion.html
 https://songli-econ.github.io/papers/robust-narrative-persuasion-draft.pdf
+https://songli-econ.github.io/papers/robust-narrative-persuasion-slides.pdf
