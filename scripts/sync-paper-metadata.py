@@ -117,7 +117,7 @@ def update_html(text: str, date: datetime) -> str:
         text,
         (
             r'(<p class="paper-meta citation_author">'
-            r"Song Li\. Working paper\. )"
+            r"Song Li\. Working paper\. Submitted\. )"
             r"(?:January|February|March|April|May|June|July|August|"
             r"September|October|November|December) \d{1,2}, \d{4}"
             r"(\.</p>)"
@@ -143,10 +143,11 @@ def update_sitemap_entry(text: str, url: str, iso_date: str) -> str:
     )
 
 
-def update_sitemap(text: str, date: datetime) -> str:
-    iso_date = date.strftime("%Y-%m-%d")
-    text = update_sitemap_entry(text, LANDING_URL, iso_date)
-    return update_sitemap_entry(text, PDF_URL, iso_date)
+def update_sitemap(text: str, date: datetime, update_landing: bool) -> str:
+    last_modified = date.strftime("%Y-%m-%dT00:00:00+00:00")
+    if update_landing:
+        text = update_sitemap_entry(text, LANDING_URL, last_modified)
+    return update_sitemap_entry(text, PDF_URL, last_modified)
 
 
 def sync_file(path: Path, updated: str, check: bool) -> bool:
@@ -178,7 +179,11 @@ def main() -> int:
     html_original = args.html.read_text(encoding="utf-8")
     sitemap_original = args.sitemap.read_text(encoding="utf-8")
     html_updated = update_html(html_original, date)
-    sitemap_updated = update_sitemap(sitemap_original, date)
+    sitemap_updated = update_sitemap(
+        sitemap_original,
+        date,
+        update_landing=html_original != html_updated,
+    )
 
     changed = []
     if sync_file(args.html, html_updated, args.check):
