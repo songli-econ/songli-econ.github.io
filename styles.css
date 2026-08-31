@@ -27,14 +27,12 @@ body {
 
 a {
   color: inherit;
-  text-decoration-color: rgba(169, 7, 7, 0.45);
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
   color: var(--accent);
-  text-decoration-color: var(--accent);
 }
 
 .site {
@@ -143,10 +141,17 @@ h2 {
 }
 
 .subsection-title {
-  margin: 24px 0 8px;
+  margin: 34px 0 12px;
   font-size: 17px;
   font-weight: 700;
   line-height: 1.35;
+}
+
+.subgroup-title {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
 }
 
 p {
@@ -165,26 +170,60 @@ li + li {
 .paper-list {
   list-style: none;
   padding: 0;
+  display: grid;
+  gap: 22px;
 }
 
 .paper-list li {
-  padding: 18px 0;
-  border-top: 1px solid var(--line);
+  padding: 0;
+  border: 0;
 }
 
 .paper-list li:first-child {
-  border-top: 0;
-  padding-top: 0;
+  padding: 0;
+}
+
+.paper-list li + li {
+  margin-top: 0;
 }
 
 .paper-title {
   font-weight: 700;
+  line-height: 1.45;
+}
+
+.paper-title a {
+  color: var(--ink);
+}
+
+.paper-title a:hover,
+.paper-title a:focus {
+  color: var(--accent);
 }
 
 .paper-meta {
-  margin-top: 4px;
+  margin-top: 3px;
   color: var(--muted);
   font-size: 15px;
+  line-height: 1.55;
+}
+
+.paper-resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 16px 0 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.paper-resources a {
+  color: var(--ink);
+}
+
+.paper-resources a:hover,
+.paper-resources a:focus {
+  color: var(--accent);
 }
 
 .paper-abstract {
