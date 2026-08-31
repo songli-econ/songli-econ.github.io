@@ -5,3 +5,6 @@
 # Narrow to the /export filename shape on purpose; `*.txt` would also cover
 # robots.txt, which is a real part of the site.
 20??-??-??-??????-*.txt
+
+# Local Codex hook state is not part of the published site.
+.codex/
