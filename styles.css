@@ -250,6 +250,51 @@ li + li {
   font-weight: 700;
 }
 
+.teaching-index > .subsection-title {
+  margin-top: 30px;
+  margin-bottom: 4px;
+}
+
+.course-year {
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.teaching-materials {
+  width: min(720px, 100%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.teaching-materials li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: baseline;
+  margin: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.teaching-materials a {
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.teaching-materials a:hover,
+.teaching-materials a:focus {
+  color: var(--accent);
+}
+
+.material-number,
+.material-format {
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .footer {
   padding-top: 34px;
   color: var(--muted);
