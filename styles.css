@@ -261,6 +261,17 @@ li + li {
   font-size: 15px;
 }
 
+.course-year a {
+  color: var(--muted);
+}
+
+.course-year a:hover,
+.course-year a:focus,
+.teaching-index .subsection-title a:hover,
+.teaching-index .subsection-title a:focus {
+  color: var(--accent);
+}
+
 .teaching-materials {
   width: min(720px, 100%);
   margin: 0;
@@ -271,7 +282,7 @@ li + li {
 
 .teaching-materials li {
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) auto;
+  grid-template-columns: 32px minmax(0, 1fr);
   gap: 14px;
   align-items: baseline;
   margin: 0;
@@ -289,8 +300,7 @@ li + li {
   color: var(--accent);
 }
 
-.material-number,
-.material-format {
+.material-number {
   color: var(--muted);
   font-size: 13px;
 }
