@@ -15,12 +15,8 @@ stamp = next(row.split('\t', 1)[0] for row in rows
 date = datetime.fromisoformat(stamp)
 page = root / 'index.html'
 text = page.read_text()
-text, count = re.subn(r'("dateModified": ")[^"]+(" )',
+text, count = re.subn(r'("dateModified": ")[^"]+(")',
                      lambda m: m[1] + stamp + m[2], text)
-# The JSON field ends with a comma and newline.
-if count == 0:
-    text, count = re.subn(r'("dateModified": ")[^"]+(")',
-                         lambda m: m[1] + stamp + m[2], text)
 assert count == 1, f'Expected one dateModified field, got {count}'
 text, count = re.subn(r'Last updated [A-Za-z]+ \d{4}\.',
                      f'Last updated {date:%B %Y}.', text)
